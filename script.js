@@ -106,10 +106,47 @@
 // }
 
 
-function formatToCurrency(value){
-    
-    return value.toFixed(2).toString().replace(".", ",") + "€"
-    // return String(value.toFixed(2)).replace(".", ",") + "€"
+// function formatToCurrency(value){
+//     return value.toFixed(2).toString().replace(".", ",") + "€"
+//     // return String(value.toFixed(2)).replace(".", ",") + "€"
+// }
+// console.log(formatToCurrency(0.5));
+
+
+// document.getElementById('p-Tag').setAttribute('title', 'Ein Titel')
+// document.getElementById('p-Tag').setAttribute('class', 'test-class')
+// // document.getElementById('p-Tag').classList.add('test-class')
+
+// function button_toogle(){
+//     document.getElementById('p-Tag').classList.toggle('display_none')
+// }
+
+
+// function getValue(){
+//     console.log(document.getElementById('input_id').value)
+// }
+
+let count = 0;
+
+function init(){
+    testOne();
+    debuggerOutput('inti')
+    testOne();
+    testTwo('testTwo')
+    testOne();
 }
 
-console.log(formatToCurrency(0.5));
+function testOne(){
+    debuggerOutput('testOne')
+}
+
+function testTwo(text){
+    debuggerOutput(text)
+    testOne();
+}
+
+function debuggerOutput(text){
+    count++;
+    let debuggerLogRef = document.getElementById('debugger_log');
+    debuggerLogRef.innerHTML = count + text;
+}
