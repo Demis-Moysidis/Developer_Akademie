@@ -129,11 +129,10 @@
 let count = 0;
 
 function init(){
-    testOne();
+    
     debuggerOutput('inti')
-    testOne();
     testTwo('testTwo')
-    testOne();
+    
 }
 
 function testOne(){
@@ -142,7 +141,7 @@ function testOne(){
 
 function testTwo(text){
     debuggerOutput(text)
-    testOne();
+    
 }
 
 function debuggerOutput(text){
