@@ -290,3 +290,14 @@
 // console.log(isPrime(7)); // Erwartete Ausgabe: true (7 ist eine Primzahl)
 
 // console.log(isPrime(4)); // Erwartete Ausgabe: false (4 ist keine Primzahl)
+
+
+function initArrays(){
+    let refList = document.getElementsByClassName('red_box')
+
+    for (let index = 0; index < refList.length; index++) {
+        const singleRef = refList[index];
+        singleRef.innerText = index;
+        
+    }
+}
