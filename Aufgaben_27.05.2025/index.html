@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="script.js"></script>
+</head>
+
+<body>
+
+    <h1>modul 6 sektion 2</h1>
+
+    <h2>Baue nun Inputfelder und Buttons fÃ¼r die Checks ein und zeige die Ergebnisse unter den Inputfeldern im HTML an
+        z.B. in einer div.
+    </h2>
+
+    <!-- Aufgabe 1.1 -->
+    <section>
+        <button onclick="checkGrade()">Klick Aufgabe 1</button>
+        <input type="number" id="inputGrade">
+        <p id="outputGrade"></p>
+    </section>
+    <!-- Aufgabe 2.1 -->
+     <section>
+        <h2>Positiv, Negativ oder Null</h2>
+        <button onclick="checkNumber('inputPNN','outputPNN')">Klick Aufgabe 2</button>
+        <input type="number" id="inputPNN">
+        <p id="outputPNN"></p>
+     </section>
+
+    <!-- Aufgabe 3.1 -->
+     <section>
+        <h2>Bigger Number?</h2>
+        <button onclick="checkBigger('input_1_bigger', 'input_2_bigger', 'outputBigger')">Klick Aufgabe 3</button>
+        <input type="number" id="input_1_bigger" placeholder="Number 1">
+        <input type="number" id="input_2_bigger" placeholder="Number 2">
+        <p id="outputBigger"></p>
+     </section>
+
+    <!-- Zusatzaufgabe 4.1 -->
+     <section>
+        <h2>String length</h2>
+        <button onclick="checkStringLength('inputLength', 'outputLength')">Klick Aufgabe 4</button>
+        <input type="text" id="inputLength">
+        <p id="outputLength"></p>
+     </section>
+     
+
+</body>
+
+</html>
