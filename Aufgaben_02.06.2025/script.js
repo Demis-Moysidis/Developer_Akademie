@@ -37,27 +37,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // ## Aufgabe 3 (Verwendung von Arrays in for-Schleifen):
 
 // In einem Online-Shop möchte ich die Gesamtmenge der Produkte in meinem
