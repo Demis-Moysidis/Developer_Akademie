@@ -1,0 +1,22 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('./assets/fonts/Roboto-VariableFont_wdth\,wght.ttf');
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+.notebox{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 8px
+}
+
+.inputbox{
+    padding: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}

@@ -1,11 +1,15 @@
-let notes = ['banana', 'rasen mähen'];
-let notesTitles = ['Ba', 'Aufgabe'];
+let notes = ['Rasen mähen', 'Buch lesen'];
+let notesTitles = ['Aufgabe 1', 'Aufgabe 2'];
 
 let trashNotes = [];
 let trashNotesTitles = [];
 
+let archivNotes = [];
+let archivNotesTitles = [];
+
 function init(){
     renderNotes();
+    renderArchivNotes();
     renderTrashNotes();
 }
 
@@ -19,6 +23,18 @@ function renderNotes(){
     for (let indexNote = 0; indexNote < notes.length; indexNote++) {
         contentRef.innerHTML += getNoteTemplate(indexNote);   
     }
+}
+
+function renderArchivNotes(){
+
+    getArchivNotesAndArchivTitelsNotesFromLocalStorage();
+
+    let archivContentRef = document.getElementById('archiv_content');
+    archivContentRef.innerHTML = "";
+
+    for (let indexArchivNote = 0; indexArchivNote < archivNotes.length; indexArchivNote++) {
+        archivContentRef.innerHTML += getArchivNoteTemplate(indexArchivNote);   
+    }    
 }
 
 function renderTrashNotes(){
@@ -39,9 +55,21 @@ function getNotesAndTitleNotesFromLocalStorage(){
         notes = notesFromLocalStorage
     }
 
-    let notesTitelsFromLocalStorage = JSON.parse(localStorage.getItem('myNotesTitelsData'))
+    let notesTitelsFromLocalStorage = JSON.parse(localStorage.getItem('myNotesTitlesData'))
     if(notesTitelsFromLocalStorage != null){
         notesTitles = notesTitelsFromLocalStorage
+    }
+}
+
+function getArchivNotesAndArchivTitelsNotesFromLocalStorage(){
+    let archivNotesFromLocalStorage = JSON.parse(localStorage.getItem('myArchivNotesData'))
+    if(archivNotesFromLocalStorage != null){
+        archivNotes = archivNotesFromLocalStorage
+    }
+
+    let archivNotesTitelsFromLocalStorage = JSON.parse(localStorage.getItem('myArchivNotesTitlesData'))
+    if(archivNotesTitelsFromLocalStorage != null){
+        archivNotesTitles = archivNotesTitelsFromLocalStorage
     }
 }
 
@@ -51,26 +79,10 @@ function getTrashNotesAndTrashTitelsNotesFromLocalStorage(){
         trashNotes = trashNotesFromLocalStorage
     }
 
-    let trashNotesTitelsFromLocalStorage = JSON.parse(localStorage.getItem('myTrashNotesData'))
+    let trashNotesTitelsFromLocalStorage = JSON.parse(localStorage.getItem('myTrashNotesTitlesData'))
     if(trashNotesTitelsFromLocalStorage != null){
         trashNotesTitles = trashNotesTitelsFromLocalStorage
     }
-}
-
-function getNoteTemplate(indexNote){
-    return /*html*/`
-        <p>+ title: ${notesTitles[indexNote]} -> ${notes[indexNote]}
-            <button onclick="deleteNote(${indexNote})">X</button>
-        </p>
-    `
-}
-
-function getTrashNoteTemplate(indexTrashNote){
-    return /*html*/`
-        <p>+ title: ${trashNotesTitles[indexTrashNote]} -> ${trashNotes[indexTrashNote]}
-            <button onclick="deleteTrashNote(${indexTrashNote})">X</button>
-        </p>
-    `
 }
 
 function addNote(){
@@ -78,7 +90,11 @@ function addNote(){
     let noteInput = noteInputRef.value;
 
     let noteTitleRef = document.getElementById('note_title');
-    let noteTitle = noteTitleRef.value;    
+    let noteTitle = noteTitleRef.value;
+    
+    if(!noteTitle || !noteInput){
+        return
+    }
 
     notes.push(noteInput);
     notesTitles.push(noteTitle);
@@ -87,9 +103,24 @@ function addNote(){
     noteTitleRef.value = "";
 
     localStorage.setItem('myNotesData', JSON.stringify(notes));
-    localStorage.setItem('myNotesTitelsData', JSON.stringify(notesTitles));
+    localStorage.setItem('myNotesTitlesData', JSON.stringify(notesTitles));
 
     renderNotes();
+}
+
+function archivNote(indexNote){
+    let archivNote = notes.splice(indexNote, 1);
+    archivNotes.push(archivNote[0]);
+    let archivNoteTitle = notesTitles.splice(indexNote, 1);
+    archivNotesTitles.push(archivNoteTitle[0]);
+    localStorage.setItem('myArchivNotesData', JSON.stringify(archivNotes));
+    localStorage.setItem('myArchivNotesTitlesData', JSON.stringify(archivNotesTitles));
+
+    localStorage.setItem('myNotesData', JSON.stringify(notes));
+    localStorage.setItem('myNotesTitlesData', JSON.stringify(notesTitles));
+
+    renderNotes();
+    renderArchivNotes();
 }
 
 function deleteNote(indexNote){
@@ -98,15 +129,58 @@ function deleteNote(indexNote){
     let trashNoteTitle = notesTitles.splice(indexNote, 1);
     trashNotesTitles.push(trashNoteTitle[0]);
     localStorage.setItem('myTrashNotesData', JSON.stringify(trashNotes));
-    localStorage.setItem('myTrashNotesTitleData', JSON.stringify(trashNotesTitles));
+    localStorage.setItem('myTrashNotesTitlesData', JSON.stringify(trashNotesTitles));
 
-    notes.splice(indexNote, 1);
-    notesTitles.splice(indexNote, 1);
     localStorage.setItem('myNotesData', JSON.stringify(notes));
-    localStorage.setItem('myNotesTitelsData', JSON.stringify(notesTitles));
+    localStorage.setItem('myNotesTitlesData', JSON.stringify(notesTitles));
 
     renderNotes();
     renderTrashNotes();
+}
+
+function deleteNoteFromArchiv(indexNote){
+    let trashNote = archivNotes.splice(indexNote, 1);
+    trashNotes.push(trashNote[0]);
+    let trashNoteTitle = archivNotesTitles.splice(indexNote, 1);
+    trashNotesTitles.push(trashNoteTitle[0]);
+    localStorage.setItem('myTrashNotesData', JSON.stringify(trashNotes));
+    localStorage.setItem('myTrashNotesTitlesData', JSON.stringify(trashNotesTitles));
+
+    localStorage.setItem('myArchivNotesData', JSON.stringify(archivNotes));
+    localStorage.setItem('myArchivNotesTitlesData', JSON.stringify(archivNotesTitles));
+
+    renderArchivNotes();
+    renderTrashNotes();
+}
+
+function backToNoteFromArchiv(indexNote){
+    let backToNote = archivNotes.splice(indexNote, 1);
+    notes.push(backToNote[0]);
+    let backToNoteTitle = archivNotesTitles.splice(indexNote, 1);
+    notesTitles.push(backToNoteTitle[0]);
+    localStorage.setItem('myNotesData', JSON.stringify(notes));
+    localStorage.setItem('myNotesTitlesData', JSON.stringify(notesTitles));
+
+    localStorage.setItem('myArchivNotesData', JSON.stringify(archivNotes));
+    localStorage.setItem('myArchivNotesTitlesData', JSON.stringify(archivNotesTitles));
+
+    renderArchivNotes();
+    renderNotes();
+}
+
+function backToNoteFromTrash(indexNote){
+    let backToNote = trashNotes.splice(indexNote, 1);
+    notes.push(backToNote[0]);
+    let backToNoteTitle = trashNotesTitles.splice(indexNote, 1);
+    notesTitles.push(backToNoteTitle[0]);
+    localStorage.setItem('myNotesData', JSON.stringify(notes));
+    localStorage.setItem('myNotesTitlesData', JSON.stringify(notesTitles));
+
+    localStorage.setItem('myTrashNotesData', JSON.stringify(archivNotes));
+    localStorage.setItem('myTrashNotesTitlesData', JSON.stringify(archivNotesTitles));
+
+    renderTrashNotes();
+    renderNotes();
 }
 
 function deleteTrashNote(indexTrashNote){
@@ -114,7 +188,7 @@ function deleteTrashNote(indexTrashNote){
     trashNotesTitles.splice(indexTrashNote, 1);
 
     localStorage.setItem('myTrashNotesData', JSON.stringify(trashNotes));
-    localStorage.setItem('myTrashNotesTitleData', JSON.stringify(trashNotesTitles));
+    localStorage.setItem('myTrashNotesTitlesData', JSON.stringify(trashNotesTitles));
 
     renderTrashNotes();
 }

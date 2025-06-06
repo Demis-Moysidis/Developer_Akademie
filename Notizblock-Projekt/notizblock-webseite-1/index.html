@@ -4,22 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notizblock</title>
-    <script src="./script.js"></script>
 
+    <script src="./scripts/templates.js"></script>
+    <script src="./script.js"></script>
+    
     <link rel="stylesheet" href="./styles/standard.css">
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./styles/assets.css">
+    <link rel="stylesheet" href="./styles/note.css">
 </head>
 <body onload="init()">
     <h1>Notizblock</h1>
     
-    <input id="note_title" type="text" placeholder="title">
-    <input id="note_input" type="text" placeholder="input">
-    <button onclick="addNote()">Notiz speichern</button>
-
-    <h2>notes</h2>
-    <div id="content"></div>
+    <div class="inputbox">
+        <input id="note_title" type="text" placeholder="Title">
+        <input id="note_input" type="text" placeholder="Content">
+        <button onclick="addNote()">Notiz speichern</button>
+    </div>
     
-    <h2>trash</h2>
-    <div id="trash_content"></div>
+    <h2>Notes</h2>
+    <div class="notebox" id="content"></div>
+    
+    <h2>Archiv</h2>
+    <div class="notebox" id="archiv_content"></div>
+
+    <h2>Trash</h2>
+    <div class="notebox" id="trash_content"></div>
 </body>
 </html>
