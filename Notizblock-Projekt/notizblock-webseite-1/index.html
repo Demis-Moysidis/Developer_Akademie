@@ -9,10 +9,11 @@
     <link rel="stylesheet" href="./styles/standard.css">
     <link rel="stylesheet" href="./style.css">
 </head>
-<body onload="renderNotes()">
+<body onload="init()">
     <h1>Notizblock</h1>
     
-    <input id="note_input" type="text">
+    <input id="note_title" type="text" placeholder="title">
+    <input id="note_input" type="text" placeholder="input">
     <button onclick="addNote()">Notiz speichern</button>
 
     <h2>notes</h2>
