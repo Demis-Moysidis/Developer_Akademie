@@ -1,6 +1,12 @@
+@font-face {
+    font-family: 'Rubik';
+    src: url(./assets/fonts/Rubik-VariableFont_wght.ttf);
+}
+
 body{
+    font-family: 'Rubik' !important;
     background-color: #F4EDFF !important;
-    height: calc(100vh - 66px);
+    height: calc(100vh - 16px);
 }
 
 .container{
@@ -11,7 +17,6 @@ body{
 }
 
 .question-footer{
-    border-top: 1px solid rgba(0, 0, 0, 0.4);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -19,7 +24,25 @@ body{
 }
 
 .quiz_card{
-    width: 25rem;
+    width: 40rem;
+    flex-direction: row !important;
+}
+
+.quiz-card-categories{
+    background-color: #27355c;
+    color: white;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 12px;
+}
+
+.quiz-card-categories img{
+    width: 60px;
+    margin-bottom: 30px;
+    margin-top: 30px;
 }
 
 .nav-bg-color{
@@ -37,6 +60,12 @@ body{
 .progress-bar{
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
+}
+
+.single-card-body{
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
 }
 
 .single-card-body:hover {
@@ -60,4 +89,204 @@ body{
     display: flex;
     justify-content: center;
     margin-top: 16px;
+}
+
+.btn-arrow{
+    border-radius: 50% !important;
+    width: 50px;
+    height: 50px;
+    border: none !important;
+}
+
+.btn-arrow img{
+    width: 20px;
+    height: 20px;
+}
+
+.card-title{
+    text-align: center;
+    margin-bottom: 30px !important;
+    margin-top: 40px;
+}
+
+.card-answers{
+    padding: 0 32px;
+}
+
+h4{
+    font-weight: 200 !important;
+}
+
+.ABCD-block{
+    width: 38px;
+    height: 38px;
+    font-weight: bold;
+    background-color: grey;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 8px;
+}
+
+.bg-green{
+    background-color: #52ac52;
+}
+
+.bg-red{
+    background-color: #ad2c2c;
+}
+
+.selected-topic{
+    border-left: 6px solid white;
+    padding-left: 20px;
+    margin-left: -25px;
+}
+
+.text-score{
+    color: #154eea;
+    display: inline;
+    font-weight: bold;
+    margin-right: 30px;
+}
+
+.btn-replay{
+    width: 160px;
+    background-color: #FF4E0F !important;
+    border: none !important;
+    font-weight: 100 !important;
+    margin-top: 5px;
+}
+
+.btn-start{
+    width: 160px;
+    background-color: #FF4E0F !important;
+    border: none !important;
+    font-weight: 100 !important;
+    margin-top: 5px;
+}
+
+.end-screen-img{
+    width: 300px;
+    display: flex;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.start-screen-img{
+    max-width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.start-screen-content{
+    position: relative;
+    z-index: 10;
+}
+
+.end-screen-circle{
+    background-color: #F7D5BB;
+    padding: 16px;
+    border-radius: 50%;
+    aspect-ratio: 1 / 1;
+}
+
+.end-screen-score{
+    margin-top: 50px;
+    font-size: 24px;
+}
+
+.card-body-start{
+    background-color: #F7F7F7 !important;
+    height: 450px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .end-screen-score{
+        margin-top: 20px;
+    }
+
+    .end-screen-img{
+        width: 180px;
+    }
+}
+
+@media (max-width:495px) {
+    .btn-start{
+        margin-bottom: 50px;
+    }
+
+    .ABCD-block{
+        margin: 5px 5px;
+    }
+
+    .end-screen-score{
+        margin-top: 40px;
+    }
+
+    .end-screen-img{
+        width: 280px;
+    }
+
+    .quiz-card-categories{
+        display: none;
+    }
+
+    .end-screen-circle{       
+        padding: 6px; 
+    }
+
+    .card{
+        padding: 0px !important;
+    }
+
+    .card-body{
+        padding: 6px !important;
+    }
+
+    .btn-row{
+        margin: 0 auto;
+        width: 140px;
+    }
+}
+
+@media (max-width:410px) {
+    .end-screen-score{
+        font-size: 16px;
+    }
+
+    .end-screen-score{
+        margin-top: 10px;
+    }
+
+    .end-screen-img{
+        width: 180px;
+    }
+
+    .quiz-card-categories{
+        display: none;
+    }
+
+    .end-screen-circle{      
+        padding: 6px;         
+    }
+
+    .card{
+        padding: 0px !important;
+    }
+
+    .card-body{
+        padding: 6px !important;
+    }
+
+    .btn-row{
+        margin: 0 auto;
+        width: 80px;
+    }
 }
