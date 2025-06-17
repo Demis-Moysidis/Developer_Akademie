@@ -1,0 +1,15 @@
+.card{
+    border: 2px solid gray;
+    border-radius: 8px;
+    padding: 12px;
+    margin: 12px;
+    background-color: rgba(128, 128, 128, 0.203);
+}
+
+ul{
+    margin: 0;
+}
+
+p{
+    margin-bottom: 0;
+}
