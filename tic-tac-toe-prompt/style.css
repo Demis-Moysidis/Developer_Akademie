@@ -1,0 +1,97 @@
+body {
+    background-color: #323232;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 50px;
+    height: 100vh;
+    margin: 0;
+}
+
+h1{
+    position: absolute;
+    top: 0;
+}
+
+table {
+    border-collapse: collapse;
+    border: none;
+}
+
+td {
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 2rem;
+    border: 5px solid white;
+}
+
+td:hover {
+    background-color: rgb(255, 255, 255, 0.3);
+    cursor: pointer;
+}
+
+/* Nur innere Linien anzeigen (nicht außen) */
+td:first-child {
+    border-left: none;
+}
+td:last-child {
+    border-right: none;
+}
+tr:first-child td {
+    border-top: none;
+}
+tr:last-child td {
+    border-bottom: none;
+}
+
+#restart-btn {
+  background: linear-gradient(135deg, #4b6cb7, #182848);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+#restart-btn:hover {
+  background: linear-gradient(135deg, #182848, #4b6cb7);
+  transform: scale(1.05);
+}
+
+#restart-btn:active {
+  transform: scale(0.98);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.indicator-symbol {
+  width: 60px;
+  height: 60px;
+  transition: all 0.5s;
+  opacity: 0.3;
+  filter: grayscale(100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.indicator-symbol.active {
+  opacity: 1;
+  filter: none;
+}
+
+#turn-indicator {
+    padding: 10px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
