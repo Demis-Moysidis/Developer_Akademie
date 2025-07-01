@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body onload="renderSquare()">
+    <h1>If Else Render Übung mit einzigartigen IDs</h1>
+
+    <p>1. Erstelle eine script.js und style.css Datei.</p>
+    <p>2. Erstelle eine Funktion die 5 grüne Quadrate dynamisch mit JavaScript anzeigt, in jedem Quadrat steht eine Zahl von 1-5. Tipp: Die ID "content" existiert schon in der index.html, nutze sie.</p>
+    <p>3. Erstelle ein Array mit 5 Einträgen, das speichert, ob ein Quadrat bereits geklickt wurde. Nutze hierfür den boolean-Wert "false" als Startwert. Dieses Array wird benötigt, um herauszufinden in welchen Zustand das Quadrat sein soll.</p>
+    <p>4. Erstelle eine Funktion, die die Klickereignisse für jedes Quadrat behandelt. Verwende if-else-Abfragen, um den Zustand des Quadrats zu überprüfen und zu ändern. Tipp: Denke an einzigartige IDs!</p>
+    <p>5. Wenn man ein Quadrat nun anklickt soll sich zuerst die Farbe von dem Quadrat auf rot verändern. Tipp: Definiere eine CSS-Klasse für die rote Farbe (z.B. .red), die du mithilfe von classList.add() zum Quadrat hinzufügen kannst, wenn es angeklickt wird.</p>
+    <p>6. Beim zweiten Klick auf das selbe Quadrat wird nun die Zahl entfernt. Das Quadrat bleibt in rot erhalten. Tipp: Teste immer mal wieder nach kleinen Änderungen ob es wie gewünscht funktioniert.</p>
+    <p><b>7. Zusatz:</b> Beim dritten Klick sieht man wieder das grüne Quadrat mit der Zahl.</p>
+
+    <div id="content"></div>
+</body>
+</html>
