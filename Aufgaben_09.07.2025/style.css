@@ -1,0 +1,31 @@
+#characters {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+}
+
+.character {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: lightgray;
+    border-radius: 8px;
+    padding: 12px;
+    width: 230px;
+    gap: 8px;
+    transition: all 0.2s ease;
+}
+
+.character:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.character img {
+    width: 200px;
+}
+
+.character p{
+    margin: 0;
+}
