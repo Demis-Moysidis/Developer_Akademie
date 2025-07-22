@@ -1,17 +1,11 @@
 class Bankkonto {
     besitzer;
     kontostand;
-    zins;
+    zins = 0.02;
 
-    constructor(besitzer, kontostand, zins) {
+    constructor(besitzer, kontostand) {
         this.besitzer = besitzer;
         this.kontostand = kontostand;
-        this.zins = zins;
-        this.neuesKonto();
-    }
-
-    neuesKonto() {
-        console.log('neues konto kontostand: ' + this.kontostand);
     }
 
     abheben(auszahlung) {
@@ -39,10 +33,3 @@ class Bankkonto {
     }
 
 }
-
-let meinBankkonto = new Bankkonto('Demis', 856.78, 0.03);
-
-meinBankkonto.abheben(70);
-meinBankkonto.einzahlen(150);
-meinBankkonto.zinsen();
-meinBankkonto.infos();
