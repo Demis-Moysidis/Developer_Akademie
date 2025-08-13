@@ -9,21 +9,21 @@ class Bankkonto {
     }
 
     abheben(auszahlung) {
-        console.log('vor abheben: ' + this.kontostand);
+        console.log('vor abheben: ' + this.constructor.name + ' ' + this.kontostand);
         this.kontostand -= auszahlung;
-        console.log('nach abheben: ' + this.kontostand);
+        console.log('nach abheben: ' + this.constructor.name + ' ' + this.kontostand);
     }
 
     einzahlen(einzahlung) {
-        console.log('vor einzahlen: ' + this.kontostand);
+        console.log('vor einzahlen: ' + this.constructor.name + ' ' + this.kontostand);
         this.kontostand += einzahlung;
-        console.log('nach einzahlen: ' + this.kontostand);
+        console.log('nach einzahlen: ' + this.constructor.name + ' ' + this.kontostand);
     }
 
     zinsen() {
-        console.log('vor zinsen: ' + this.kontostand);
+        console.log('vor zinsen: ' + this.constructor.name + ' ' + this.kontostand );
         this.kontostand += Number((this.zins * this.kontostand).toFixed(2));
-        console.log('nach zinsen: ' + this.kontostand);
+        console.log('nach zinsen: ' + this.constructor.name + ' ' + this.kontostand);
     }
 
     infos() {

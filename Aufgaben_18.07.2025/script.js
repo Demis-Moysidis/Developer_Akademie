@@ -10,13 +10,13 @@ let meinSparkonto = new Sparkonto('Demis', 125.00);
 
 // console.log(meinBankkonto, meinGirokonto, meinSparkonto);
 
-console.log('Kontostand Bankkonto: ' + meinBankkonto.kontostand);
-console.log('Kontostand Girokonto: ' + meinGirokonto.kontostand);
 
-console.log('Transaktion: ');
+console.log('Transaktion: von 100€');
 meinGirokonto.transaktion(meinBankkonto, 100);
 
-console.log('Kontostand Bankkonto: ' + meinBankkonto.kontostand);
-console.log('Kontostand Girokonto: ' + meinGirokonto.kontostand);
+meinSparkonto.zinsen();
+meinBankkonto.zinsen();
+meinGirokonto.zinsen();
+
 
 meinGirokonto.dauerauftrag();

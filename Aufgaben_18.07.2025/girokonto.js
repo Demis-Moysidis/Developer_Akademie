@@ -1,8 +1,8 @@
 class Girokonto extends Bankkonto{
 
     transaktion(bankkonto, betrag) {
-        bankkonto.kontostand -= betrag;
-        this.kontostand += betrag;
+        bankkonto.abheben(betrag);
+        this.einzahlen(betrag);
     }
 
     dauerauftrag() {
